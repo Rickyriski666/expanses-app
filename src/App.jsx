@@ -1,7 +1,11 @@
-import { useState } from "react";
+import Form from "./form/Form";
 
 function App() {
-  return <>Hello</>;
+  return (
+    <>
+      <Form></Form>
+    </>
+  );
 }
 
 export default App;
