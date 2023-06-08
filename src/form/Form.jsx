@@ -1,23 +1,36 @@
 import InputForm from "./InputForm";
 import Button from "../component/Button";
 import { useState } from "react";
+import Container from "../component/Container";
 
-export default function Form() {
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
-  const [date, setDate] = useState("");
+export default function Form({ userInput }) {
+  const [newTitle, setNewTitle] = useState("");
+  const [newPrice, setNewPrice] = useState("");
+  const [newDate, setNewDate] = useState("");
 
-  const titleInput = (data) => setTitle(data);
-  const priceInput = (data) => setPrice(data);
-  const dateInput = (data) => setDate(data);
+  const titleInput = (data) => setNewTitle(data);
+  const priceInput = (data) => setNewPrice(data);
+  const dateInput = (data) => setNewDate(data);
 
-  console.log(`dari title ${title}`);
-  console.log(`dari price ${price}`);
-  console.log(`dari date ${date}`);
+  function submitHandler(e) {
+    e.preventDefault();
+
+    const newDataExpanse = {
+      title: newTitle,
+      amount: newPrice,
+      date: newDate,
+    };
+
+    userInput(newDataExpanse);
+  }
 
   return (
-    <div className="bg-slate-900 p-4 container max-w-[95%] w-[50rem] m-auto rounded-2xl">
-      <form action="" className="px-5 py-4 bg-slate-800 rounded-2xl">
+    <Container>
+      <form
+        action=""
+        onSubmit={submitHandler}
+        className="px-5 py-4 bg-slate-800 rounded-2xl"
+      >
         <div className="mb-8">
           <InputForm title="Title" typeinput="text" userInput={titleInput} />
           <InputForm title="Price" typeinput="number" userInput={priceInput} />
@@ -28,6 +41,6 @@ export default function Form() {
           <Button text="Add" type="submit" />
         </div>
       </form>
-    </div>
+    </Container>
   );
 }
