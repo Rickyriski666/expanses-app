@@ -17,7 +17,7 @@ export default function Form({ userInput }) {
 
     const newDataExpanse = {
       title: newTitle,
-      amount: newPrice,
+      price: newPrice,
       date: newDate,
     };
 

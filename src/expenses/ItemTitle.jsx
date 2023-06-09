@@ -1,7 +1,7 @@
-export default function ItemTitle() {
+export default function ItemTitle({ data }) {
   return (
-    <div className="grow h-20 w-20 mr-2 flex justify-start items-center">
-      title
+    <div className="grow h-20 w-20 px-4 mr-2 flex justify-start items-center font-bold text-lg">
+      {data}
     </div>
   );
 }
