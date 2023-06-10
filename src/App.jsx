@@ -36,7 +36,7 @@ function App() {
     };
 
     setExpenses((prevData) => {
-      return [...prevData, userData];
+      return [userData, ...prevData];
     });
   }
 

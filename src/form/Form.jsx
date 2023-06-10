@@ -8,9 +8,9 @@ export default function Form({ userInput }) {
   const [newPrice, setNewPrice] = useState("");
   const [newDate, setNewDate] = useState("");
 
-  const titleInput = (data) => setNewTitle(data);
-  const priceInput = (data) => setNewPrice(data);
-  const dateInput = (data) => setNewDate(data);
+  const titleInput = (input) => setNewTitle(input);
+  const priceInput = (input) => setNewPrice(input);
+  const dateInput = (input) => setNewDate(input);
 
   function submitHandler(e) {
     e.preventDefault();
@@ -21,6 +21,9 @@ export default function Form({ userInput }) {
       date: newDate,
     };
 
+    setNewTitle("");
+    setNewPrice("");
+    setNewDate("");
     userInput(newDataExpanse);
   }
 
@@ -32,9 +35,24 @@ export default function Form({ userInput }) {
         className="px-5 py-4 bg-slate-800 rounded-2xl"
       >
         <div className="mb-8">
-          <InputForm title="Title" typeinput="text" userInput={titleInput} />
-          <InputForm title="Price" typeinput="number" userInput={priceInput} />
-          <InputForm title="Date" typeinput="date" userInput={dateInput} />
+          <InputForm
+            title="Title"
+            typeinput="text"
+            userInput={titleInput}
+            value={newTitle}
+          />
+          <InputForm
+            title="Price"
+            typeinput="number"
+            userInput={priceInput}
+            value={newPrice}
+          />
+          <InputForm
+            title="Date"
+            typeinput="date"
+            userInput={dateInput}
+            value={newDate}
+          />
         </div>
 
         <div className="flex justify-end mb-3">

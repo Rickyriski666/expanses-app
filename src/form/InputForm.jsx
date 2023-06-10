@@ -1,4 +1,4 @@
-export default function InputForm({ title, typeinput, userInput }) {
+export default function InputForm({ title, typeinput, userInput, value }) {
   function inputHandler(e) {
     return userInput(e.target.value);
   }
@@ -11,6 +11,7 @@ export default function InputForm({ title, typeinput, userInput }) {
       <input
         onChange={inputHandler}
         type={typeinput}
+        value={value}
         className="rounded-lg py-1 px-2 w-full border-black"
       />
     </div>
